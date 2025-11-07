@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: server
+    env: python
+    plan: free  # или basic, если нужен платный тариф
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn server.wsgi"
+    postDeployCommand: "python manage.py migrate"
+    envVars:
+      - key: DEBUG
+        value: "True"
+      - key: DB_NAME
+        value: "dictionary_db_rlz9"
+      - key: DB_USER
+        value: "dictionary_db_rlz9_user"
+      - key: DB_PASSWORD
+        value: "NPmMGVRuip8hbKQjb7lLpvAdaCIFIRL1"
+      - key: DB_HOST
+        value: "dpg-d46ul6pr0fns73bgbi8g-a"
+      - key: DB_PORT
+        value: "5432"
