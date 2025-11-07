@@ -67,23 +67,23 @@ WSGI_APPLICATION = 'server.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         default=os.getenv('DATABASE_URL'),
-#         conn_max_age=600
-#     )
-# }
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dictionary_db_3m9f',
-        'USER': 'dictionary_db_3m9f_user',
-        'PASSWORD': 'vOstea5Z4pAmkXJwfPoPDTU52WA53HCT',
-        'HOST': 'dpg-d46segvdiees73dcn6eg-a',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL'),
+        conn_max_age=600
+    )
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'dictionary_db_3m9f',
+#         'USER': 'dictionary_db_3m9f_user',
+#         'PASSWORD': 'vOstea5Z4pAmkXJwfPoPDTU52WA53HCT',
+#         'HOST': 'dpg-d46segvdiees73dcn6eg-a',
+#         'PORT': '5432',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
