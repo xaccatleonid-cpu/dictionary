@@ -1,4 +1,5 @@
 import dj_database_url
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -67,7 +68,10 @@ WSGI_APPLICATION = 'server.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgres://...')
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL'),
+        conn_max_age=600
+    )
 }
 
 # Password validation
