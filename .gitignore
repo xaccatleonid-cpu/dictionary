@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.log
+
+# Django
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+local_settings.py
+
+# Virtualenv
+venv/
+env/
+ENV/
+.venv/
+.env
+
+# IDE и редакторы
+.vscode/
+.idea/
+*.swp
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Миграции (если не хочешь коммитить их сразу)
+*/migrations/*.pyc
+*/migrations/__pycache__/
+*/migrations/*.py
+
+# Node (если используешь frontend)
+node_modules/
+
+# Секреты и конфигурация
+.env
+*.pem
+*.key

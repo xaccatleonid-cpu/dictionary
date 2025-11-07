@@ -1,0 +1,16 @@
+{% extends 'dictionary/base.html' %}
+{% block title %}Подтверждение удаления{% endblock %}
+{% block content %}
+<h2>Удалить {{ type }}?</h2>
+<p>Вы уверены, что хотите удалить <strong>{{ object }}</strong>? Это действие необратимо.</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">🗑️ Удалить</button>
+    {% if cancel_args %}
+    <a href="{% url cancel_url cancel_args.0 %}" class="btn btn-secondary">↩️ Отмена</a>
+    {% else %}
+    <a href="{% url cancel_url %}" class="btn btn-secondary">↩️ Отмена</a>
+    {% endif %}
+
+</form>
+{% endblock %}

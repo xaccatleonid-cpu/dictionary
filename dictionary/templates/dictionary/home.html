@@ -1,0 +1,19 @@
+{% extends 'dictionary/base.html' %}
+{% block title %}Список языков{% endblock %}
+{% block content %}
+<h2>Языки</h2>
+<a href="{% url 'dictionary:add_language' %}" class="btn btn-primary mb-3">➕ Добавить язык</a>
+<ul class="list-group">
+    {% for language in languages %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        <a href="{% url 'dictionary:language_detail' language.pk %}">{{ language.name }}</a>
+        <div>
+            <a href="{% url 'dictionary:edit_language' language.pk %}" class="btn btn-sm btn-outline-secondary">✏️</a>
+            <a href="{% url 'dictionary:delete_language' language.pk %}" class="btn btn-sm btn-outline-danger">🗑️</a>
+        </div>
+    </li>
+    {% empty %}
+    <li class="list-group-item">Нет добавленных языков.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
