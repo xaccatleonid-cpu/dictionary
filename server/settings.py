@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-58-zm5ihxvc^ge*0&4eay+-f_m1-ym#s@jbf#--n)plh1@p$h_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['dictionary-14jh.onrender.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -67,23 +67,24 @@ WSGI_APPLICATION = 'server.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL'),
-        conn_max_age=600
-    )
-}
-
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'dictionary_db_3m9f',
-#         'USER': 'dictionary_db_3m9f_user',
-#         'PASSWORD': 'vOstea5Z4pAmkXJwfPoPDTU52WA53HCT',
-#         'HOST': 'dpg-d46segvdiees73dcn6eg-a',
-#         'PORT': '5432',
-#     }
+#     'default': dj_database_url.config(
+#         default=os.getenv('DATABASE_URL'),
+#         conn_max_age=600
+#     )
 # }
+
+# Для базы данных PostgreSQL от Render
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': '5432',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
